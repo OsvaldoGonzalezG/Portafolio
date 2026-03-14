@@ -1,781 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Osvaldo González | Portafolio</title>
-  <meta name="description" content="Portafolio de Osvaldo González, desarrollador backend en formación con foco en Python, Django, SQL y Cloud." />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --bg-soft: #121a30;
-      --card: rgba(18, 26, 48, 0.78);
-      --text: #eef2ff;
-      --muted: #b4bfd8;
-      --line: rgba(255,255,255,0.08);
-      --accent: #7c3aed;
-      --accent-2: #22c55e;
-      --shadow: 0 24px 60px rgba(0,0,0,0.28);
-      --radius: 22px;
-      --max: 1150px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osvaldo González | Portafolio</title>
+<meta name="description" content="Portafolio de Osvaldo González, desarrollador backend en formación con experiencia en infraestructura cloud.">
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124,58,237,0.22), transparent 28%),
-        radial-gradient(circle at top right, rgba(34,197,94,0.14), transparent 25%),
-        linear-gradient(180deg, #09101f 0%, #0b1020 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
+<style>
+:root{
+--bg:#0b1020;
+--card:#121a30;
+--text:#eef2ff;
+--muted:#b4bfd8;
+--accent:#7c3aed;
+--line:rgba(255,255,255,0.08);
+}
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+body{
+margin:0;
+font-family:Inter,system-ui;
+background:linear-gradient(180deg,#09101f,#0b1020);
+color:var(--text);
+}
 
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
+.container{
+width:min(1100px,90%);
+margin:auto;
+}
 
-    .glass {
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: var(--radius);
-    }
+header{
+padding:20px 0;
+border-bottom:1px solid var(--line);
+}
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11, 16, 32, 0.72);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+nav a{
+color:var(--muted);
+margin-left:20px;
+text-decoration:none;
+}
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+.hero{
+padding:60px 0;
+}
 
-    .brand-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), #4f46e5);
-      box-shadow: 0 10px 25px rgba(124,58,237,0.35);
-      font-weight: 900;
-    }
+h1{font-size:40px;margin-bottom:10px}
 
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+.lead{
+color:var(--muted);
+max-width:700px;
+}
 
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: 0.2s ease;
-    }
+.stats{
+display:flex;
+gap:30px;
+margin-top:30px;
+}
 
-    .nav-links a:hover { color: var(--text); }
+.stat strong{
+font-size:22px;
+display:block;
+}
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 0.9rem 1.2rem;
-      border-radius: 14px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: 0.25s ease;
-      cursor: pointer;
-    }
+section{padding:60px 0}
 
-    .button-primary {
-      background: linear-gradient(135deg, var(--accent), #4f46e5);
-      color: white;
-      box-shadow: 0 18px 35px rgba(99, 102, 241, 0.28);
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
 
-    .button-primary:hover { transform: translateY(-2px); }
+.card{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+border:1px solid var(--line);
+}
 
-    .button-secondary {
-      background: rgba(255,255,255,0.03);
-      border-color: var(--line);
-      color: var(--text);
-    }
+.tag{
+border:1px solid var(--line);
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+margin-right:5px;
+color:var(--muted);
+}
 
-    .button-secondary:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-2px);
-    }
+.project-links a{
+margin-right:15px;
+color:#c4b5fd;
+text-decoration:none;
+font-weight:bold;
+}
 
-    .hero {
-      padding: 4.5rem 0 3rem;
-    }
+footer{
+padding:40px 0;
+border-top:1px solid var(--line);
+color:var(--muted);
+text-align:center;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.9fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .hero-card, .hero-side {
-      padding: 2rem;
-      min-height: 100%;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      gap: 0.5rem;
-      align-items: center;
-      padding: 0.45rem 0.8rem;
-      border: 1px solid rgba(124,58,237,0.28);
-      border-radius: 999px;
-      background: rgba(124,58,237,0.12);
-      color: #ddd6fe;
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
-    }
-
-    h1, h2, h3 { line-height: 1.15; margin: 0; }
-    h1 {
-      font-size: clamp(2.3rem, 5vw, 4.4rem);
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      margin-bottom: 0.8rem;
-    }
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 62ch;
-    }
-
-    .hero-actions {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .stats {
-      margin-top: 1.8rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.8rem;
-    }
-
-    .stat {
-      padding: 1rem;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.45rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .muted { color: var(--muted); }
-
-    .profile {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .profile-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .avatar {
-      width: 70px;
-      height: 70px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.9), rgba(79,70,229,0.9));
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 1.4rem;
-      box-shadow: 0 18px 35px rgba(124,58,237,0.28);
-    }
-
-    .pill-list, .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .pill, .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 0.45rem 0.75rem;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,0.03);
-      font-size: 0.92rem;
-    }
-
-    section {
-      padding: 1.5rem 0;
-    }
-
-    .section-head {
-      margin-bottom: 1.2rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    .about-card, .study-card, .contact-card {
-      padding: 1.6rem;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .skill-box {
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-
-    .project-card {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-
-    .project-top {
-      padding: 1.35rem 1.35rem 0.75rem;
-    }
-
-    .project-visual {
-      margin: 1rem 1.35rem 0;
-      min-height: 170px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(124,58,237,0.16), rgba(255,255,255,0.03));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-visual::before,
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .project-visual::before {
-      width: 72%;
-      height: 18px;
-      left: 14%;
-      top: 18%;
-    }
-
-    .project-visual::after {
-      width: 56%;
-      height: 18px;
-      left: 14%;
-      top: 35%;
-    }
-
-    .visual-grid {
-      position: absolute;
-      inset: auto 14% 14% 14%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
-    }
-
-    .visual-grid span {
-      display: block;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .project-body {
-      padding: 1.15rem 1.35rem 1.35rem;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .project-links a {
-      font-weight: 700;
-      color: #ddd6fe;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .timeline-item {
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.2rem;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .contact-link {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-2,
-      .projects-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats, .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 0.9rem 0;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-
-      .hero-card, .hero-side, .about-card, .study-card, .contact-card {
-        padding: 1.2rem;
-      }
-
-      .hero {
-        padding-top: 2rem;
-      }
-    }
-  </style>
+@media(max-width:900px){
+.grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#inicio" class="brand">
-        <span class="brand-badge">OG</span>
-        <span>Osvaldo González</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#caso-estudio">Caso de estudio</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <article class="glass hero-card">
-          <span class="eyebrow">Portafolio profesional · Backend & Cloud</span>
-          <h1>Construyo soluciones web con base técnica sólida y enfoque en aprendizaje continuo.</h1>
-          <p class="lead">
-            Soy <strong>Osvaldo Andrés González González</strong>, desarrollador en formación con foco en <strong>Python, Django, SQL</strong> y fundamentos de <strong>Cloud</strong>. Este espacio reúne mis proyectos de los módulos <strong>5, 6 y 7</strong>, junto con aprendizajes y un caso de estudio pensado para mostrar mi evolución técnica de forma clara y profesional.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#proyectos">Ver proyectos</a>
-            <a class="button button-secondary" href="#contacto">Contactar</a>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>3+</strong>
-              <span class="muted">Proyectos destacados</span>
-            </div>
-            <div class="stat">
-              <strong>Python</strong>
-              <span class="muted">Backend y lógica</span>
-            </div>
-            <div class="stat">
-              <strong>Django</strong>
-              <span class="muted">Apps web completas</span>
-            </div>
-          </div>
-        </article>
+<header>
+<div class="container">
+<nav>
+<strong>Osvaldo González</strong>
+<div>
+<a href="#sobre">Sobre mí</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#caso">Caso de estudio</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+</div>
+</header>
 
-        <aside class="glass hero-side">
-          <div class="profile">
-            <div class="profile-top">
-              <div>
-                <div class="avatar">OG</div>
-              </div>
-              <span class="pill">Disponible para roles junior</span>
-            </div>
+<section class="hero">
+<div class="container">
+<h1>Backend Developer en formación</h1>
 
-            <div>
-              <h3>Perfil</h3>
-              <p class="muted">
-                Me interesa crecer en desarrollo backend, bases de datos y soluciones cloud, aportando organización, curiosidad técnica y constancia.
-              </p>
-            </div>
+<p class="lead">
+Soy <strong>Osvaldo Andrés González González</strong>, desarrollador en formación con foco en <strong>Python, Django y SQL</strong>. Actualmente trabajo en el <strong>área de infraestructura cloud</strong>, mientras continúo desarrollando mis habilidades como programador. Esta combinación me permite entender tanto el desarrollo de aplicaciones como los entornos donde se ejecutan.
+</p>
 
-            <div>
-              <h3>Tecnologías</h3>
-              <div class="pill-list">
-                <span class="pill">Python</span>
-                <span class="pill">Django</span>
-                <span class="pill">SQL</span>
-                <span class="pill">HTML</span>
-                <span class="pill">CSS</span>
-                <span class="pill">Bootstrap</span>
-                <span class="pill">Git</span>
-                <span class="pill">GitHub</span>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+<div class="stats">
+<div class="stat"><strong>3+</strong>Proyectos destacados</div>
+<div class="stat"><strong>Cloud</strong>Infraestructura</div>
+<div class="stat"><strong>Python</strong>Backend</div>
+</div>
 
-    <section id="sobre-mi">
-      <div class="container">
-        <div class="section-head">
-          <h2>Sobre mí</h2>
-          <p class="muted">Una presentación breve, enfocada en lo técnico y en el valor que puedo aportar a un equipo.</p>
-        </div>
-        <div class="grid-2">
-          <article class="glass about-card">
-            <h3>Resumen profesional</h3>
-            <p class="muted">
-              He desarrollado proyectos web durante mi formación, especialmente en los módulos 5, 6 y 7, aplicando estructuras backend, modelado de datos, autenticación, CRUD, templates y organización de aplicaciones. Busco seguir fortaleciendo mi perfil en entornos donde pueda aprender, documentar bien y construir soluciones funcionales.
-            </p>
-            <div class="skills-grid">
-              <div class="skill-box">
-                <h3>Backend</h3>
-                <p class="muted">Construcción de aplicaciones con Python y Django, modelos, vistas, rutas y lógica de negocio.</p>
-              </div>
-              <div class="skill-box">
-                <h3>Bases de datos</h3>
-                <p class="muted">Consultas SQL, estructura de datos, relaciones y organización de información.</p>
-              </div>
-              <div class="skill-box">
-                <h3>Frontend</h3>
-                <p class="muted">Interfaces limpias con HTML, CSS y Bootstrap, priorizando claridad visual y buena navegación.</p>
-              </div>
-              <div class="skill-box">
-                <h3>Trabajo técnico</h3>
-                <p class="muted">Documentación, mejora continua, aprendizaje autónomo y adaptación a nuevos desafíos.</p>
-              </div>
-            </div>
-          </article>
+</div>
+</section>
 
-          <article class="glass about-card">
-            <h3>Enfoque y objetivos</h3>
-            <p class="muted">
-              Mi objetivo es integrarme a un entorno donde pueda aportar desde el desarrollo y seguir creciendo en buenas prácticas, arquitectura de software y tecnologías cloud.
-            </p>
-            <div class="timeline">
-              <div class="timeline-item">
-                <strong>Fortaleza principal</strong>
-                <p class="muted">Capacidad para convertir requerimientos de aprendizaje en proyectos funcionales y presentables.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Interés actual</strong>
-                <p class="muted">Backend, bases de datos, despliegue de aplicaciones y fortalecimiento del perfil profesional para roles junior.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Valor que aporto</strong>
-                <p class="muted">Compromiso, orden, ganas de aprender y disposición para colaborar en proyectos tecnológicos reales.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<section id="sobre">
+<div class="container">
+<h2>Sobre mí</h2>
+<p class="lead">
+Trabajo actualmente en el área de infraestructura cloud mientras realizo mis estudios como desarrollador. Mi objetivo es evolucionar hacia roles donde pueda combinar desarrollo backend, bases de datos y tecnologías cloud.
+</p>
+</div>
+</section>
 
-    <section id="proyectos">
-      <div class="container">
-        <div class="section-head">
-          <h2>Proyectos destacados</h2>
-          <p class="muted">Tres experiencias que resumen mi progreso en desarrollo web, lógica backend y estructura de aplicaciones.</p>
-        </div>
+<section id="proyectos">
+<div class="container">
+<h2>Proyectos destacados</h2>
 
-        <div class="projects-grid">
-          <article class="glass project-card">
-            <div class="project-top">
-              <span class="tag">Django · Comunidad</span>
-            </div>
-            <div class="project-visual">
-              <div class="visual-grid">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="project-body">
-              <div>
-                <h3>Mini Reddit</h3>
-                <p class="muted">Proyecto del módulo 7 orientado a una experiencia web tipo comunidad, con publicaciones, respuestas, autenticación y mejora de interfaz para hacer la navegación más clara y atractiva.</p>
-              </div>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Django</span>
-                <span class="tag">CRUD</span>
-                <span class="tag">Auth</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/OsvaldoGonzalezG" target="_blank" rel="noreferrer">Ver GitHub</a>
-                <a href="#contacto">Demo próximamente</a>
-              </div>
-            </div>
-          </article>
+<div class="grid">
 
-          <article class="glass project-card">
-            <div class="project-top">
-              <span class="tag">Django · Contenido</span>
-            </div>
-            <div class="project-visual">
-              <div class="visual-grid">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="project-body">
-              <div>
-                <h3>Wiki App</h3>
-                <p class="muted">Proyecto del módulo 6 enfocado en gestión de contenido estilo wiki, con creación y visualización de entradas, navegación ordenada y mejoras visuales para una presentación más profesional.</p>
-              </div>
-              <div class="tags">
-                <span class="tag">Django</span>
-                <span class="tag">Templates</span>
-                <span class="tag">Navegación</span>
-                <span class="tag">UI</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/OsvaldoGonzalezG" target="_blank" rel="noreferrer">Ver GitHub</a>
-                <a href="#contacto">Demo próximamente</a>
-              </div>
-            </div>
-          </article>
+<div class="card">
+<h3>Myth Store</h3>
+<p class="lead">Tienda digital para productos TCG desarrollada como proyecto académico utilizando Django y base de datos SQL.</p>
+<div>
+<span class="tag">Python</span>
+<span class="tag">Django</span>
+<span class="tag">SQL</span>
+</div>
 
-          <article class="glass project-card">
-            <div class="project-top">
-              <span class="tag">Ecommerce · Caso principal</span>
-            </div>
-            <div class="project-visual">
-              <div class="visual-grid">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="project-body">
-              <div>
-                <h3>Myth Store</h3>
-                <p class="muted">Proyecto del módulo 5 convertido en tienda digital para productos TCG, con catálogo, estructura visual cuidada e identidad propia orientada a una marca llamada Myth Store.</p>
-              </div>
-              <div class="tags">
-                <span class="tag">Django</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Bootstrap</span>
-                <span class="tag">Catalogo</span>
-              </div>
-              <div class="project-links">
-                <a href="#caso-estudio">Ver caso</a>
-                <a href="#contacto">Agregar GitHub</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="project-links">
+<a href="https://github.com/OsvaldoGonzalezG/myth_store_proyecto_modulo_7" target="_blank">Repositorio</a>
+</div>
+</div>
 
-    <section id="caso-estudio">
-      <div class="container">
-        <div class="section-head">
-          <h2>Caso de estudio · Myth Store</h2>
-          <p class="muted">Proyecto elegido para representar mi crecimiento técnico y mi capacidad de construir una solución funcional y presentable.</p>
-        </div>
+<div class="card">
+<h3>Alke Wallet</h3>
+<p class="lead">Aplicación de billetera digital enfocada en gestión de transacciones y estructura de aplicación backend.</p>
 
-        <div class="grid-2">
-          <article class="glass study-card">
-            <h3>Descripción</h3>
-            <p class="muted">
-              Myth Store es una aplicación web orientada a la exhibición de productos TCG. El objetivo fue construir una experiencia clara para visualizar un catálogo, presentar productos y trabajar una identidad visual coherente.
-            </p>
-            <div class="timeline">
-              <div class="timeline-item">
-                <strong>Desafío principal</strong>
-                <p class="muted">Organizar la información, estructurar el catálogo y lograr una interfaz más atractiva sin perder claridad.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Solución aplicada</strong>
-                <p class="muted">Se desarrolló una base web con Django, templates HTML, estilos CSS y apoyo de Bootstrap para construir una navegación funcional y ordenada.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Aprendizajes</strong>
-                <p class="muted">Modelado de datos, relación entre backend y frontend, estructura de proyectos y mejora visual orientada a portafolio.</p>
-              </div>
-            </div>
-          </article>
+<div>
+<span class="tag">Python</span>
+<span class="tag">Django</span>
+</div>
 
-          <article class="glass study-card">
-            <h3>Herramientas y valor técnico</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <strong>Stack</strong>
-                <p class="muted">Python, Django, HTML, CSS, Bootstrap y SQL.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Habilidades aplicadas</strong>
-                <p class="muted">Desarrollo backend, diseño de vistas, templates, organización visual, estructura de catálogo y lógica de aplicación web.</p>
-              </div>
-              <div class="timeline-item">
-                <strong>Por qué lo elegí</strong>
-                <p class="muted">Porque integra desarrollo, estructura, diseño y una identidad propia. Resume bien mi evolución técnica y mi capacidad de transformar una idea en un producto visible.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="project-links">
+<a href="https://github.com/OsvaldoGonzalezG/Alke_Wallet" target="_blank">Repositorio</a>
+</div>
+</div>
 
-    <section id="contacto">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contacto y enlaces</h2>
-          <p class="muted">Deja aquí tus enlaces reales antes de publicar en GitHub Pages.</p>
-        </div>
+<div class="card">
+<h3>Gestor Inteligente de Clientes</h3>
+<p class="lead">Sistema orientado a la gestión de clientes, diseñado para centralizar información y facilitar su administración.</p>
 
-        <div class="contact-grid">
-          <article class="glass contact-card">
-            <h3>Disponibilidad</h3>
-            <p class="muted">
-              Estoy construyendo mi perfil para oportunidades trainee o junior en desarrollo, backend y tecnología. Este portafolio puede seguir creciendo con nuevas versiones, proyectos y enlaces a demos reales.
-            </p>
-            <div class="contact-links">
-              <a class="contact-link" href="https://github.com/OsvaldoGonzalezG" target="_blank" rel="noreferrer">
-                <span>GitHub</span>
-                <strong>OsvaldoGonzalezG</strong>
-              </a>
-              <a class="contact-link" href="https://www.linkedin.com/in/osvaldo-gonzalez-ab96b7318/" target="_blank" rel="noreferrer">
-                <span>LinkedIn</span>
-                <strong>osvaldo-gonzalez-ab96b7318</strong>
-              </a>
-              <a class="contact-link" href="mailto:gonzalezgosvald@gmail.com">
-                <span>Email</span>
-                <strong>gonzalezgosvald@gmail.com</strong>
-              </a>
-            </div>
-          </article>
+<div>
+<span class="tag">Python</span>
+<span class="tag">Django</span>
+<span class="tag">SQL</span>
+</div>
 
-          <article class="glass contact-card">
-            <h3>Siguiente paso</h3>
-            <p class="muted">
-              Este sitio ya está preparado para convertirse en tu GitHub Pages. Solo falta reemplazar enlaces, subir capturas de tus proyectos y publicar el repositorio.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#inicio">Volver arriba</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="project-links">
+<a href="https://github.com/OsvaldoGonzalezG/gestor-inteligente-clientes" target="_blank">Repositorio</a>
+</div>
+</div>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Osvaldo González · Portafolio profesional.
-    </div>
-  </footer>
+</div>
+</div>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<section id="caso">
+<div class="container">
+<h2>Caso de estudio</h2>
+
+<div class="card">
+<h3>Myth Store</h3>
+
+<p class="lead">
+Este proyecto fue desarrollado como una tienda digital para productos TCG. El objetivo fue construir una aplicación funcional con backend en Django, manejo de datos y una interfaz clara para navegar por un catálogo de productos.
+</p>
+
+<p>
+Durante su desarrollo trabajé en modelado de datos, vistas, templates y estructura de aplicación web, lo que me permitió fortalecer mi comprensión del desarrollo full‑stack básico.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<section id="contacto">
+<div class="container">
+<h2>Contacto</h2>
+
+<div class="card">
+<p><strong>GitHub:</strong> <a href="https://github.com/OsvaldoGonzalezG" target="_blank">github.com/OsvaldoGonzalezG</a></p>
+
+<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/osvaldo-gonzalez-ab96b7318/" target="_blank">Perfil profesional</a></p>
+
+<p><strong>Email:</strong> <a href="mailto:gonzalezgosvald@gmail.com">gonzalezgosvald@gmail.com</a></p>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+© <span id="year"></span> Osvaldo González
+</div>
+</footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
