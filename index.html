@@ -10,12 +10,17 @@
 :root{
 --bg:#0b1020;
 --card:#121a30;
+--card-2:#18233f;
 --text:#eef2ff;
 --muted:#b4bfd8;
 --accent:#7c3aed;
+--accent-2:#22c55e;
 --line:rgba(255,255,255,0.08);
+--shadow:0 18px 40px rgba(0,0,0,0.24);
 }
 
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
 margin:0;
 font-family:Inter,system-ui;
@@ -31,40 +36,73 @@ margin:auto;
 header{
 padding:20px 0;
 border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+backdrop-filter:blur(10px);
+background:rgba(11,16,32,.82);
+z-index:10;
 }
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
+gap:20px;
 }
 
 nav a{
 color:var(--muted);
 margin-left:20px;
 text-decoration:none;
+transition:.2s ease;
 }
+nav a:hover{color:var(--text)}
 
 .hero{
-padding:60px 0;
+padding:70px 0 50px;
 }
 
-h1{font-size:40px;margin-bottom:10px}
+.kicker{
+display:inline-block;
+padding:8px 14px;
+border:1px solid rgba(124,58,237,.35);
+border-radius:999px;
+color:#ddd6fe;
+background:rgba(124,58,237,.12);
+font-size:13px;
+margin-bottom:16px;
+}
+
+h1{font-size:44px;line-height:1.1;margin:0 0 14px}
+h2{font-size:30px;margin:0 0 16px}
+h3{margin-top:0}
 
 .lead{
 color:var(--muted);
-max-width:700px;
+max-width:760px;
+font-size:1.02rem;
 }
 
 .stats{
 display:flex;
-gap:30px;
+gap:20px;
 margin-top:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:var(--card);
+padding:16px 18px;
+border-radius:14px;
+border:1px solid var(--line);
+box-shadow:var(--shadow);
+min-width:180px;
 }
 
 .stat strong{
 font-size:22px;
 display:block;
+margin-bottom:4px;
 }
 
 section{padding:60px 0}
@@ -76,11 +114,14 @@ gap:25px;
 }
 
 .card{
-background:var(--card);
+background:linear-gradient(180deg,var(--card),var(--card-2));
 padding:25px;
-border-radius:12px;
+border-radius:16px;
 border:1px solid var(--line);
+box-shadow:var(--shadow);
 }
+
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
 .tag{
 border:1px solid var(--line);
@@ -89,14 +130,41 @@ border-radius:20px;
 font-size:12px;
 margin-right:5px;
 color:var(--muted);
+display:inline-block;
 }
 
+.project-links{margin-top:16px}
 .project-links a{
 margin-right:15px;
 color:#c4b5fd;
 text-decoration:none;
 font-weight:bold;
 }
+.project-links a:hover{text-decoration:underline}
+
+.hero-actions{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+display:inline-block;
+padding:12px 18px;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+transition:.2s ease;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#4f46e5);color:#fff}
+.btn-secondary{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+.btn:hover{transform:translateY(-1px)}
+
+.exp-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:24px;
+}
+
+.list-clean{margin:14px 0 0;padding-left:18px;color:var(--muted)}
+.list-clean li{margin-bottom:8px}
+
+.contact-card a{color:#c4b5fd}
 
 footer{
 padding:40px 0;
@@ -106,7 +174,9 @@ text-align:center;
 }
 
 @media(max-width:900px){
-.grid{grid-template-columns:1fr}
+.grid,.exp-grid{grid-template-columns:1fr}
+nav{flex-direction:column;align-items:flex-start}
+nav a{margin-left:0;margin-right:14px}
 }
 </style>
 </head>
@@ -119,6 +189,8 @@ text-align:center;
 <strong>Osvaldo González</strong>
 <div>
 <a href="#sobre">Sobre mí</a>
+<a href="#experiencia">Experiencia</a>
+<a href="#formacion">Formación</a>
 <a href="#proyectos">Proyectos</a>
 <a href="#caso">Caso de estudio</a>
 <a href="#contacto">Contacto</a>
@@ -129,16 +201,26 @@ text-align:center;
 
 <section class="hero">
 <div class="container">
-<h1>Backend Developer en formación</h1>
+<span class="kicker">Cloud Infrastructure + Backend Developer</span>
+<h1>Construyo mi perfil entre infraestructura cloud y desarrollo backend con Python.</h1>
 
 <p class="lead">
-Soy <strong>Osvaldo Andrés González González</strong>, desarrollador en formación con foco en <strong>Python, Django y SQL</strong>. Actualmente trabajo en el <strong>área de infraestructura cloud</strong>, mientras continúo desarrollando mis habilidades como programador. Esta combinación me permite entender tanto el desarrollo de aplicaciones como los entornos donde se ejecutan.
+Soy <strong>Osvaldo Andrés González González</strong>, profesional del área tecnológica con experiencia en <strong>infraestructura cloud</strong> y formación en <strong>desarrollo Fullstack con Python</strong>. Actualmente trabajo administrando entornos en <strong>Google Cloud Platform</strong>, participando en soporte de plataformas, revisión de incidencias, gestión de accesos IAM y apoyo a despliegues de aplicaciones.
 </p>
 
+<p class="lead">
+Paralelamente me encuentro cursando un <strong>programa de Desarrollo Fullstack con Python</strong>, donde desarrollo aplicaciones web utilizando <strong>Python, Django y bases de datos SQL</strong>. Esta combinación entre experiencia en infraestructura y desarrollo me permite entender tanto cómo se construyen las aplicaciones como el entorno donde se ejecutan.
+</p>
+
+<div class="hero-actions">
+<a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+<a class="btn btn-secondary" href="#contacto">Contactar</a>
+</div>
+
 <div class="stats">
-<div class="stat"><strong>3+</strong>Proyectos destacados</div>
-<div class="stat"><strong>Cloud</strong>Infraestructura</div>
-<div class="stat"><strong>Python</strong>Backend</div>
+<div class="stat"><strong>Cloud</strong>Google Cloud Platform</div>
+<div class="stat"><strong>Python</strong>Backend Development</div>
+<div class="stat"><strong>SQL</strong>Bases de datos</div>
 </div>
 
 </div>
@@ -148,8 +230,68 @@ Soy <strong>Osvaldo Andrés González González</strong>, desarrollador en forma
 <div class="container">
 <h2>Sobre mí</h2>
 <p class="lead">
-Trabajo actualmente en el área de infraestructura cloud mientras realizo mis estudios como desarrollador. Mi objetivo es evolucionar hacia roles donde pueda combinar desarrollo backend, bases de datos y tecnologías cloud.
+Actualmente me desempeño en el área de <strong>infraestructura cloud</strong>, trabajando con entornos en Google Cloud Platform, gestión de accesos IAM, validación de conectividad a bases de datos, ejecución de scripts SQL y soporte a despliegues junto a equipos de desarrollo.
 </p>
+<p class="lead">
+Mientras trabajo en el área de infraestructura, estoy cursando una formación en <strong>Desarrollo Fullstack con Python</strong>, donde desarrollo proyectos web completos utilizando Django, SQL y control de versiones con Git.
+</p>
+<p class="lead">
+Mi objetivo profesional es evolucionar hacia roles donde pueda combinar <strong>desarrollo backend</strong> con mi experiencia en <strong>infraestructura cloud</strong>, participando tanto en la construcción como en la operación de aplicaciones modernas.
+</p>
+</div>
+</section>
+
+<section id="experiencia">
+<div class="container">
+<h2>Experiencia profesional</h2>
+<div class="exp-grid">
+<div class="card">
+<h3>Infraestructura Cloud y Soporte de Plataformas</h3>
+<p class="lead">
+Experiencia práctica administrando entornos en Google Cloud Platform y apoyando la operación de plataformas en distintos ambientes. Trabajo con tareas vinculadas a seguridad, accesos, despliegues y soporte técnico operativo.
+</p>
+<ul class="list-clean">
+<li>Administración de entornos en Google Cloud Platform.</li>
+<li>Gestión de roles, permisos y políticas de seguridad IAM.</li>
+<li>Ejecución y validación de scripts SQL en ambientes DEV, QA y PROD.</li>
+<li>Soporte a despliegues y configuraciones de aplicaciones.</li>
+<li>Análisis de incidencias, revisión de logs y validaciones operativas.</li>
+<li>Validación de conectividad a bases de datos MySQL y SQL Server.</li>
+<li>Automatización básica con gcloud CLI, Bash y Python.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Perfil actual</h3>
+<div class="badge-row">
+<span class="tag">Google Cloud</span>
+<span class="tag">IAM</span>
+<span class="tag">SQL</span>
+<span class="tag">MySQL</span>
+<span class="tag">SQL Server</span>
+<span class="tag">Bash</span>
+<span class="tag">gcloud CLI</span>
+<span class="tag">Python</span>
+</div>
+<p class="lead">
+Esta experiencia me ha permitido desarrollar una mirada práctica sobre ambientes reales, seguridad, operación y soporte, complementando mi formación como desarrollador.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="formacion">
+<div class="container">
+<h2>Formación</h2>
+<div class="card">
+<h3>Programa de Desarrollo Fullstack con Python</h3>
+<p class="lead">
+Actualmente cursando formación en desarrollo web Fullstack con enfoque en Python. Durante el programa desarrollo aplicaciones web completas utilizando Django, bases de datos SQL y control de versiones con Git.
+</p>
+<p>
+Tecnologías principales: Python, Django, SQL, HTML, CSS, Git y GitHub.
+</p>
+</div>
 </div>
 </section>
 
@@ -229,16 +371,11 @@ Durante su desarrollo trabajé en modelado de datos, vistas, templates y estruct
 <section id="contacto">
 <div class="container">
 <h2>Contacto</h2>
-
-<div class="card">
+<div class="card contact-card">
 <p><strong>GitHub:</strong> <a href="https://github.com/OsvaldoGonzalezG" target="_blank">github.com/OsvaldoGonzalezG</a></p>
-
 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/osvaldo-gonzalez-ab96b7318/" target="_blank">Perfil profesional</a></p>
-
 <p><strong>Email:</strong> <a href="mailto:gonzalezgosvald@gmail.com">gonzalezgosvald@gmail.com</a></p>
-
 </div>
-
 </div>
 </section>
 
